@@ -27,8 +27,8 @@ export const metadata: Metadata = {
     "TypeScript Utilities",
     "Productivity Tools",
   ],
-  authors: [{ name: "Your Name", url: "https://your-website.com" }],
-  creator: "Your Name",
+  authors: [{ name: "Maruf Suborno", url: "https:ullass.com" }],
+  creator: "Maruf Suborno",
   publisher: "TS CodeCraft",
   openGraph: {
     title: "TS CodeCraft - Essential TypeScript Utility Library",
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     "max-video-preview": -1,
   },
   alternates: {
-    canonical: "https://ts-codecraft.com",
+    canonical: "https://ts-codecraft.vercel.app/",
   },
   manifest: "/site.webmanifest",
 };
