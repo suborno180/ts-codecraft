@@ -12,7 +12,7 @@ export default function Home() {
   `;
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="grid bg-white  grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <h1 className="text-4xl font-bold text-center sm:text-left flex flex-col items-start gap-2">
           Welcome to <span className="text-blue-500 flex items-center gap-3"><LuRocket size={32} color="blue" /> TS CodeCraft</span>
@@ -76,8 +76,7 @@ export default function Home() {
         {/* Call to Action */}
         <div className="flex gap-4 items-center flex-col sm:flex-row mt-6">
           <Link
-            href="/docs"
-            target="_blank"
+            href="/doc/installation"
             rel="noopener noreferrer"
           >
             <Button className="flex items-center gap-3">
@@ -101,43 +100,6 @@ export default function Home() {
           </Link>
         </div>
       </main>
-
-      {/* Footer Links */}
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <Link
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="/learn"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="mr-2">
-            <LuBookOpenCheck size={16} />
-          </span>
-          Learn More
-        </Link>
-        <Link
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="/examples"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="mr-2">
-            <LuRocket size={16} />
-          </span>
-          Examples
-        </Link>
-        <Link
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://github.com/suborno180/ts-codecraft"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="mr-2">
-            <LuRocket size={16} />
-          </span>
-          GitHub Repository
-        </Link>
-      </footer>
     </div>
   );
 }

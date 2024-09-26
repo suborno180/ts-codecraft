@@ -9,7 +9,7 @@ import standardizeFolderPath from '../filesystem/utils/standardizeFolderPath';
 
 // console.log(JSON.stringify(fileStructure, null, 2)); // Print the structured result
 
-const folderPath = 'C:\\suborno\\github\\ts-codecraft\\codecraft\\src\\filesystem'; // Change this to your target directory
+const folderPath = 'E:\\github\\packege\\codecraft\\src\\date-utils'; // Change this to your target directory
 // const directoryTree = getDirectoryTree(folderPath); // Get structure
 
 // Write the structured result to a text file
@@ -23,7 +23,6 @@ const folderStature = getDirectoryTree(folderPath)
 const metaData = gatherFileMetadata(folderPath, {
     path: true,
     name: true,
-    size: true,
     content: true
 })
 
