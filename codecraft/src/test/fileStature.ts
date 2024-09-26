@@ -18,46 +18,13 @@ const folderPath = 'C:\\suborno\\github\\ts-codecraft\\codecraft\\src\\filesyste
 
 // console.log(`Directory structure has been saved to: ${outputPath}`);
 
-const folderStature = exportFolderStructure(folderPath)
-// const pardesStature = gatherFileMetadata(folderPath, {
-//     path: true,
-//     name: true,
-//     size: true,
-//     created: true,
-//     modified: true,
-// })
-// const contentSize = getContentSize({
-//     type: "image",
-//     content: "C:\\Users\\Skyranko\\Downloads\\JobsCareers-901568660.webp"
-// })
+const folderStature = getDirectoryTree(folderPath)
 
-// console.log(contentSize);
+const metaData = gatherFileMetadata(folderPath, {
+    path: true,
+    name: true,
+    size: true,
+    content: true
+})
 
-function main() {
-    const paths = [
-        "F:/some/path/to/file.txt",
-        "F:\\some\\path\\to\\file.txt"
-    ];
-
-    // Convert to backslashes
-    paths.forEach(path => {
-        try {
-            const standardized = standardizeFolderPath(path, { type: "toBackslash" });
-            console.log(`Original: ${path} => Standardized (Backslash): ${standardized}`);
-        } catch (error) {
-            console.error(error);
-        }
-    });
-
-    // Convert to forward slashes
-    paths.forEach(path => {
-        try {
-            const standardized = standardizeFolderPath(path, { type: "toForwardSlash" });
-            console.log(`Original: ${path} => Standardized (Forward Slash): ${standardized}`);
-        } catch (error) {
-            console.error(error);
-        }
-    });
-}
-
-main();
+console.log(metaData);
