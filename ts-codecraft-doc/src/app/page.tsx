@@ -1,6 +1,8 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { LuRocket, LuCheckCircle, LuBookOpenCheck } from "react-icons/lu";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const codeString = `
@@ -73,36 +75,38 @@ export default function Home() {
 
         {/* Call to Action */}
         <div className="flex gap-4 items-center flex-col sm:flex-row mt-6">
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
+          <Link
             href="/docs"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className="mr-2">
-              <LuBookOpenCheck size={20} />
-            </span>
-            Read Full Documentation
-          </a>
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://github.com/your-repo/ts-codecraft"
+            <Button className="flex items-center gap-3">
+              <span className="mr-2">
+                <LuBookOpenCheck size={20} />
+              </span>
+              Read Full Documentation
+            </Button>
+          </Link>
+          <Link
+            href="https://github.com/suborno180/ts-codecraft"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className="mr-2">
-              <LuRocket size={20} />
-            </span>
-            View on GitHub
-          </a>
+            <Button className="flex items-center gap-3" variant={'ghost'}>
+              <span className="mr-2">
+                <LuRocket size={20} />
+              </span>
+              View on GitHub
+            </Button>
+          </Link>
         </div>
       </main>
 
       {/* Footer Links */}
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
+        <Link
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://ts-codecraft-docs.com/learn"
+          href="/learn"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -110,10 +114,10 @@ export default function Home() {
             <LuBookOpenCheck size={16} />
           </span>
           Learn More
-        </a>
-        <a
+        </Link>
+        <Link
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://ts-codecraft-examples.com"
+          href="/examples"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -121,10 +125,10 @@ export default function Home() {
             <LuRocket size={16} />
           </span>
           Examples
-        </a>
-        <a
+        </Link>
+        <Link
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://github.com/your-repo/ts-codecraft"
+          href="https://github.com/suborno180/ts-codecraft"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -132,7 +136,7 @@ export default function Home() {
             <LuRocket size={16} />
           </span>
           GitHub Repository
-        </a>
+        </Link>
       </footer>
     </div>
   );
