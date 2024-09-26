@@ -1,0 +1,29 @@
+{
+  "name": "ts-codecraft",
+  "version": "2.0.3",
+  "description": "A TypeScript utility package for web automation and web scraping.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/my-ts-package.git"
+  },
+  "keywords": [
+    "typescript",
+    "utils",
+    "functions"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.7.0",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "@google-cloud/storage": "^7.13.0",
+    "ts-codecraft": "^1.0.0"
+  }
+}
