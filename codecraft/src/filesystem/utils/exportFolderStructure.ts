@@ -43,8 +43,7 @@ const exportFolderStructure = (basePath: string, level: number = 0): string => {
 };
 
 // Usage example (you can modify or comment this out)
-const outputPath = process.argv[2] || 'C:\\suborno\\'; // Use provided path or current directory
-const folderStructureString = exportFolderStructure(outputPath);
-console.log('Exported folder structure:\n', folderStructureString);
-
+// const outputPath = process.argv[2] || 'C:\\suborno\\'; // Use provided path or current directory
+// const folderStructureString = exportFolderStructure(outputPath);
+// console.log('Exported folder structure:\n', folderStructureString);
 export default exportFolderStructure; // Optional: export the function for use in other files

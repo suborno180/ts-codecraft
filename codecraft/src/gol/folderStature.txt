@@ -1,0 +1,47 @@
+src/
+│
+├── aiModel/
+│   ├── UserPreferences/
+│   │   ├── getUserPreferences.ts          // Retrieves user preferences
+│   │   ├── setUserPreferences.ts          // Saves user preferences
+│   │   └── resetUserPreferences.ts        // Resets user preferences to defaults
+│   │
+│   ├── LearningAndFeedback/
+│   │   ├── analyzeLearningData.ts         // Analyzes learning data for insights
+│   │   └── applyFeedbackToModel.ts        // Applies user feedback to improve the model
+│   │
+│   ├── PerformanceMonitoring/
+│   │   ├── trackPerformanceMetrics.ts     // Tracks detailed performance metrics of functions
+│   │   └── generatePerformanceReport.ts   // Generates a performance report based on metrics
+│   │
+│   ├── ErrorHandling/
+│   │   ├── handleError.ts                 // Handles errors gracefully
+│   │   └── generateErrorReport.ts         // Generates detailed error reports
+│   │
+│   ├── UserInteraction/
+│   │   ├── displayRecommendations.ts       // Displays code improvement recommendations
+│   │   └── showErrorMessage.ts             // Displays user-friendly error messages
+│   │
+│   └── index.ts                           // Entry point for the AI model
+│
+└── utils/
+    ├── appendTextToFile.ts
+    ├── copyFile.ts
+    ├── createDirectory.ts
+    ├── createStructure.ts
+    ├── deleteFile.ts
+    ├── directoryExists.ts
+    ├── emptyDirectory.ts
+    ├── exportFolderStructure.ts
+    ├── fileExists.ts
+    ├── findFilesByExtension.ts
+    ├── getFileExtension.ts
+    ├── getFileStats.ts
+    ├── listFilesInDirectory.ts
+    ├── moveFile.ts
+    ├── readDirectoryRecursively.ts
+    ├── readFileAsText.ts
+    ├── readJsonFile.ts
+    ├── renameFile.ts
+    ├── writeJsonFile.ts
+    └── writeTextToFile.ts

@@ -18,3 +18,5 @@ export { default as appendTextToFile } from './utils/appendTextToFile';
 export { default as emptyDirectory } from './utils/emptyDirectory';
 export { default as directoryExists } from './utils/directoryExists';
 export { default as getFileExtension } from './utils/getFileExtension';
+export { default as getDirectoryTree } from './utils/getDirectoryTree';
+export { default as gatherFileMetadata } from './utils/gatherFileMetadata';
