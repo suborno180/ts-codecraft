@@ -1,6 +1,5 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import Image from "next/image";
 import { LuRocket, LuCheckCircle, LuBookOpenCheck } from "react-icons/lu";
 
 export default function Home() {
@@ -13,15 +12,6 @@ export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        {/* Logo and Title */}
-        {/* <Image
-          // className="dark:invert"
-          src="/ts-codecraft-logo.png"
-          alt="TS CodeCraft Logo"
-          width={200}
-          height={50}
-          priority
-        /> */}
         <h1 className="text-4xl font-bold text-center sm:text-left flex flex-col items-start gap-2">
           Welcome to <span className="text-blue-500 flex items-center gap-3"><LuRocket size={32} color="blue" /> TS CodeCraft</span>
         </h1>
