@@ -1,5 +1,7 @@
 import { isLeapYear } from "./isLeapYear";
 
-export const getDaysInYear = (year: number): number => {
+const getDaysInYear = (year: number): number => {
     return isLeapYear(year) ? 366 : 365;
 };
+
+export default getDaysInYear

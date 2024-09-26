@@ -1,4 +1,4 @@
-export const getWeekNumber = (date: Date): number => {
+const getWeekNumber = (date: Date): number => {
     const tempDate = new Date(date.getTime());
     tempDate.setHours(0, 0, 0, 0);
     tempDate.setDate(tempDate.getDate() + 4 - (tempDate.getDay() || 7));
@@ -8,3 +8,5 @@ export const getWeekNumber = (date: Date): number => {
 
     return weekNumber;
 };
+
+export default getWeekNumber

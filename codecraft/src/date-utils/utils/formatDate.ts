@@ -12,3 +12,5 @@ export const formatDate = (date: Date, format: DateFormatOption): string => {
 
     return format.replace(/YYYY|MM|DD|HH|mm|ss/g, (matched) => map[matched]);
 };
+
+export default formatDate
