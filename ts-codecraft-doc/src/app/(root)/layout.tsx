@@ -10,7 +10,7 @@ const layout = ({
         <>
             <main className="flex flex-col lg:flex-row w-full min-h-screen">
                 {/* Sidebar */}
-                <div className={"sticky top-0 lg:w-64 w-full lg:block"}>
+                <div className={"sticky top-0 lg:w-64 w-full hidden lg:block"}>
                     <Sidebar />
                 </div>
 
