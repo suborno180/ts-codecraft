@@ -3,6 +3,7 @@ import React from "react";
 import { LuRocket } from "react-icons/lu"; // Importing an example icon from React Icons
 import { LuFileText } from "react-icons/lu"; // Import additional icon for documentation
 import Link from "next/link";
+import Image from "next/image";
 
 export const Sidebar = () => {
     // Sidebar groups and items with icons
@@ -52,7 +53,7 @@ export const Sidebar = () => {
     return (
         <aside className="flex flex-col w-64 sticky top-0 h-screen px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
             <Link href="/">
-                <img className="w-auto h-7" src="https://merakiui.com/images/logo.svg" alt="Logo" />
+                <Image width={40} height={30}  className="w-auto h-7" src="https://merakiui.com/images/logo.svg" alt="Logo" />
             </Link>
 
             <div className="flex flex-col justify-between flex-1 mt-6">

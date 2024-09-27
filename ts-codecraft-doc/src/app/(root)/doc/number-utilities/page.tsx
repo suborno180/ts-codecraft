@@ -1,7 +1,5 @@
 import React from "react";
-import { Sidebar } from "@/components/others/sidebar"; // Use your own Sidebar component
-import { Card } from "@/components/ui/card"; // Use your own Card component
-import { twMerge } from "tailwind-merge";
+import { Card } from "@/components/ui/card"; 
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { LuCalculator, LuCheckCircle } from "react-icons/lu"; // Import icons from react-icons
