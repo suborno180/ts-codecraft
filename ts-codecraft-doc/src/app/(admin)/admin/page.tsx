@@ -1,8 +1,6 @@
-import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import React from 'react'
-import { LuPlus } from 'react-icons/lu'
-import DialogCreateGroup from './components/dialogCreateGroup'
+import DialogCreateGroup from './components/DialogCreateGroup'
 
 const Admin = () => {
   return (
