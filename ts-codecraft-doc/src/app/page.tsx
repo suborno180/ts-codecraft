@@ -70,9 +70,6 @@ export default function Home() {
         <p className="text-gray-600 max-w-md text-center sm:text-left">
           Check out a sample function from the library:
         </p>
-        <SyntaxHighlighter language="typescript" style={atomDark} className="rounded-md overflow-auto text-sm">
-          {codeString}
-        </SyntaxHighlighter>
 
         <CodeBlock code={codeString} language="typescript" />
 
