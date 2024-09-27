@@ -3,6 +3,7 @@ import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { LuRocket, LuCheckCircle, LuBookOpenCheck } from "react-icons/lu";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import CodeBlock from "@/components/others/CodeBlock";
 
 export default function Home() {
   const codeString = `
@@ -72,6 +73,8 @@ export default function Home() {
         <SyntaxHighlighter language="typescript" style={atomDark} className="rounded-md overflow-auto text-sm">
           {codeString}
         </SyntaxHighlighter>
+
+        <CodeBlock code={codeString} language="typescript" />
 
         {/* Call to Action */}
         <div className="flex gap-4 items-center flex-col sm:flex-row mt-6">

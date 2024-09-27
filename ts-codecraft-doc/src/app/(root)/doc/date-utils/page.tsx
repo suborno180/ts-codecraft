@@ -8,12 +8,7 @@ import { LuCalendar, LuCheckCircle } from "react-icons/lu"; // Import icons from
 
 const DocumentationPage = () => {
   return (
-    <main className="flex flex-col lg:flex-row w-full min-h-screen">
-      {/* Sidebar */}
-      <div className={twMerge("sticky top-0 lg:w-64 w-full lg:block")}>
-        <Sidebar />
-      </div>
-
+    <>
       {/* Content Area */}
       <div className="flex-grow w-full dark:bg-gray-900 p-4 md:p-8">
         <Card className="max-w-6xl min-h-screen mx-auto space-y-8 p-6">
@@ -117,7 +112,7 @@ const DocumentationPage = () => {
           </div>
         </Card>
       </div>
-    </main>
+    </>
   );
 };
 
