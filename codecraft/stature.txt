@@ -34,3 +34,54 @@ ts-codecrafter/
 └── validation-utils/
     ├── isEmailValid.ts
     └── isURLValid.ts
+
+
+
+functions
+
+CodeCraft
+│
+├── createClass(name: string, properties: object, methods: object): string
+├── createInterface(name: string, properties: object): string
+├── createEnum(name: string, values: string[]): string
+├── createFunction(name: string, params: object, returnType: string): string
+├── createModule(name: string, content: string): string
+├── addDecorator(decorator: string, target: string): string
+├── generateTypescript(template: string, context: object): string
+├── formatCode(code: string): string
+├── saveToFile(filePath: string, content: string): void
+├── loadTemplate(templateName: string): string
+│
+├── createTypeAlias(name: string, type: string): string
+├── createUnionType(name: string, types: string[]): string
+├── createIntersectionType(name: string, types: string[]): string
+├── addComments(code: string, comments: string[]): string
+├── createAsyncFunction(name: string, params: object, returnType: string): string
+├── createClassWithInheritance(name: string, baseClass: string, properties: object, methods: object): string
+├── generateTestFile(className: string, tests: object): string
+├── createNamespace(name: string, content: string): string
+├── createStaticMethod(className: string, methodName: string, params: object, returnType: string): string
+├── validateCode(code: string): boolean
+├── parseTypeScript(code: string): object
+│
+├── createGetterSetter(property: string, type: string): string
+├── createPrivateMethod(className: string, methodName: string, params: object, returnType: string): string
+├── addImports(imports: string[], target: string): string
+├── generateInterfaceFromClass(className: string): string
+├── createAbstractClass(name: string, properties: object, methods: object): string
+├── createMixin(name: string, methods: object): string
+├── createCustomError(name: string, message: string): string
+├── generateAPIClient(baseURL: string, endpoints: object): string
+├── generateDocs(component: string, options: object): string
+├── createReactComponent(name: string, props: object, state: object): string
+│
+├── createService(name: string, methods: object): string
+├── createMiddleware(name: string, logic: string): string
+├── generateTypeScriptConfig(options: object): string
+├── createPromiseWrapper(functionName: string): string
+├── createHook(name: string, logic: string): string
+├── generateMockData(model: string, count: number): object[]
+├── addValidation(schema: object, target: string): string
+├── createTypeGuard(typeName: string): string
+├── createContextProvider(name: string, value: object): string
+└── createVueComponent(name: string, props: object, data: object): string

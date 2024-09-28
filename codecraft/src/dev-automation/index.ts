@@ -11,4 +11,7 @@ export { default as checkServiceStatus } from './utils/checkServiceStatus';
 export { default as generateUUID } from './utils/generateUUID';
 export { default as sleep } from './utils/sleep';
 export { default as formatDate } from './utils/formatDate';
+export { default as extractTextFromHtml } from './utils/extractTextFromHtml';
+export { default as extractWordsFromParagraph } from './utils/extractWordsFromParagraph';
+export { default as extractUniqueWords } from './utils/extractUniqueWords';
 

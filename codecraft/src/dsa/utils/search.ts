@@ -23,4 +23,4 @@ const binarySearch = <T>(arr: T[], target: T): number => {
     return -1;
 };
 
-export { linearSearch, binarySearch };
+export default { linearSearch, binarySearch };

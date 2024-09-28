@@ -9,8 +9,8 @@ import standardizeFolderPath from '../filesystem/utils/standardizeFolderPath';
 
 // console.log(JSON.stringify(fileStructure, null, 2)); // Print the structured result
 
-const folderPath = 'E:\\github\\packege\\codecraft\\src\\date-utils'; // Change this to your target directory
-// const directoryTree = getDirectoryTree(folderPath); // Get structure
+const folderPath = 'C:\\suborno\\ts-codecraft\\codecraft\\src\\dsa'; // Change this to your target directory
+const directoryTree = getDirectoryTree(folderPath); // Get structure
 
 // Write the structured result to a text file
 // const outputPath = path.join(folderPath, 'directory_structure.txt'); // Path to output file
@@ -20,10 +20,10 @@ const folderPath = 'E:\\github\\packege\\codecraft\\src\\date-utils'; // Change 
 
 const folderStature = getDirectoryTree(folderPath)
 
-const metaData = gatherFileMetadata(folderPath, {
-    path: true,
-    name: true,
-    content: true
-})
+// const metaData = gatherFileMetadata(folderPath, {
+//     path: true,
+//     name: true,
+//     content: true
+// })
 
-console.log(metaData);
+console.log(directoryTree);
