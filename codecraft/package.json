@@ -20,6 +20,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^22.7.0",
+    "@types/pdf-parse": "^1.1.4",
     "ts-node": "^10.9.2",
     "typescript": "^4.5.2"
   },
@@ -27,6 +28,7 @@
     "@google-cloud/storage": "^7.13.0",
     "axios": "^1.7.7",
     "chartjs-node-canvas": "^4.1.6",
+    "pdf-parse": "^1.1.1",
     "ts-codecraft": "^1.0.0"
   }
 }

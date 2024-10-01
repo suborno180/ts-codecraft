@@ -1,0 +1,234 @@
+src
+├── array-utilities
+│   ├── chunkArray.ts
+│   ├── flattenArray.ts
+│   ├── uniqueArray.ts
+├── date-utils
+│   ├── index.ts
+│   ├── utils
+│   │   ├── addDays.ts
+│   │   ├── addMonths.ts
+│   │   ├── daysBetweenDates.ts
+│   │   ├── differenceInDays.ts
+│   │   ├── endOfWeek.ts
+│   │   ├── formatDate.ts
+│   │   ├── getDaysInMonth.ts
+│   │   ├── getDaysInYear.ts
+│   │   ├── getQuarter.ts
+│   │   ├── getWeekNumber.ts
+│   │   ├── isLeapYear.ts
+│   │   ├── isWeekend.ts
+│   │   ├── startOfWeek.ts
+│   │   ├── subtractDays.ts
+│   │   ├── subtractMonths.ts
+├── dev-automation
+│   ├── index.ts
+│   ├── utils
+│   │   ├── backupFiles.ts
+│   │   ├── checkServiceStatus.ts
+│   │   ├── cleanDirectory.ts
+│   │   ├── countWordFrequency.ts
+│   │   ├── createEnvFile.ts
+│   │   ├── createGitRepository.ts
+│   │   ├── extractTextFromHtml.ts
+│   │   ├── extractUniqueWords.ts
+│   │   ├── extractWordsFromParagraph.ts
+│   │   ├── formatDate.ts
+│   │   ├── generateRandomString.ts
+│   │   ├── generateUUID.ts
+│   │   ├── installNpmPackages.ts
+│   │   ├── runShellCommand.ts
+│   │   ├── sendHttpRequest.ts
+│   │   ├── sleep.ts
+│   │   ├── watchFileChanges.ts
+├── documentProcessing
+│   ├── index.ts
+│   ├── utils
+│   │   ├── readPDFPageByPage.ts
+├── dsa
+│   ├── index.ts
+│   ├── utils
+│   │   ├── BinaryTree.ts
+│   │   ├── graph.ts
+│   │   ├── LinkedList.ts
+│   │   ├── Queue.ts
+│   │   ├── search.ts
+│   │   ├── sort.ts
+│   │   ├── Stack.ts
+├── filesystem
+│   ├── index.ts
+│   ├── utils
+│   │   ├── appendTextToFile.ts
+│   │   ├── copyFile.ts
+│   │   ├── createDirectory.ts
+│   │   ├── createFolderStructure.ts
+│   │   ├── createStructure.ts
+│   │   ├── deleteFile.ts
+│   │   ├── directoryExists.ts
+│   │   ├── emptyDirectory.ts
+│   │   ├── exportFolderStructure.ts
+│   │   ├── fileExists.ts
+│   │   ├── findFilesByExtension.ts
+│   │   ├── gatherFileMetadata.ts
+│   │   ├── getContentSize.ts
+│   │   ├── getDirectoryTree.ts
+│   │   ├── getFileExtension.ts
+│   │   ├── getFileStats.ts
+│   │   ├── listFilesInDirectory.ts
+│   │   ├── moveFile.ts
+│   │   ├── parseFolderStructure.ts
+│   │   ├── readDirectoryRecursively.ts
+│   │   ├── readFileAsText.ts
+│   │   ├── readJsonFile.ts
+│   │   ├── renameFile.ts
+│   │   ├── standardizeFolderPath.ts
+│   │   ├── writeJsonFile.ts
+│   │   ├── writeTextToFile.ts
+├── mlUtilities
+│   ├── index.ts
+│   ├── utils
+│   │   ├── batchProcessing.ts
+│   │   ├── computeWordLengths.ts
+│   │   ├── confusionMatrix.ts
+│   │   ├── confusionMatrixVisualization.ts
+│   │   ├── crossValidation.ts
+│   │   ├── dataAugmentation.ts
+│   │   ├── dataImputation.ts
+│   │   ├── featureEngineering.ts
+│   │   ├── featureScaling.ts
+│   │   ├── featureSelection.ts
+│   │   ├── hyperparameterTuning.ts
+│   │   ├── impute.ts
+│   │   ├── kMeansClustering.ts
+│   │   ├── labelEncode.ts
+│   │   ├── learningRateScheduler.ts
+│   │   ├── metrics.ts
+│   │   ├── modelPersistence.ts
+│   │   ├── normalize.ts
+│   │   ├── oneHotEncode.ts
+│   │   ├── pca.ts
+│   │   ├── prepareTextForAnalysis.ts
+│   │   ├── sampling.ts
+│   │   ├── similarity.ts
+│   │   ├── stratifiedTrainTestSplit.ts
+│   │   ├── textPreprocessing.ts
+│   │   ├── timeSeries.ts
+│   │   ├── trainTestSplit.ts
+├── number-utilities
+│   ├── index.ts
+│   ├── utils
+│   │   ├── getRandomInt.ts
+│   │   ├── isEven.ts
+│   │   ├── isOdd.ts
+├── storage-utilities
+│   ├── cache-storage
+│   │   ├── index.ts
+│   │   ├── utils
+│   │   │   ├── addToCache.ts
+│   │   │   ├── cacheExists.ts
+│   │   │   ├── clearCache.ts
+│   │   │   ├── deleteCache.ts
+│   │   │   ├── deleteFromCache.ts
+│   │   │   ├── fetchAndCache.ts
+│   │   │   ├── getAllCacheKeys.ts
+│   │   │   ├── getFromCache.ts
+│   │   │   ├── listCacheNames.ts
+│   │   │   ├── updateCacheEntry.ts
+│   ├── cookie
+│   │   ├── index.ts
+│   │   ├── utils
+│   │   │   ├── deleteCookie.ts
+│   │   │   ├── encodeCookieValue.ts
+│   │   │   ├── getCookie.ts
+│   │   │   ├── getDecodedCookie.ts
+│   │   │   ├── setCookie.ts
+│   │   │   ├── setCookieWithSameSite.ts
+│   │   │   ├── setSecureCookie.ts
+│   ├── indexedDB
+│   │   ├── index.ts
+│   │   ├── utils
+│   │   │   ├── addData.ts
+│   │   │   ├── batchAddData.ts
+│   │   │   ├── clearStore.ts
+│   │   │   ├── closeDB.ts
+│   │   │   ├── countRecords.ts
+│   │   │   ├── dataExists.ts
+│   │   │   ├── deleteData.ts
+│   │   │   ├── deleteDataByIndex.ts
+│   │   │   ├── deleteDB.ts
+│   │   │   ├── getAllData.ts
+│   │   │   ├── getData.ts
+│   │   │   ├── getDataByIndex.ts
+│   │   │   ├── openDB.ts
+│   │   │   ├── updateData.ts
+│   ├── localStorage
+│   │   ├── clearExpiredLocalStorage.ts
+│   │   ├── clearLocalStorage.ts
+│   │   ├── getAllLocalStorageKeys.ts
+│   │   ├── getLocalStorage.ts
+│   │   ├── getLocalStorageWithExpiry.ts
+│   │   ├── keyExistsInLocalStorage.ts
+│   │   ├── mergeLocalStorageItem.ts
+│   │   ├── removeLocalStorage.ts
+│   ├── session-storage
+│   │   ├── getSessionStorage.ts
+│   │   ├── removeSessionStorage.ts
+│   │   ├── setLocalStorage.ts
+│   │   ├── setLocalStorageWithExpiry.ts
+│   │   ├── setSessionStorage.ts
+│   │   ├── updateLocalStorageItem.ts
+│   ├── storage-bucket
+│   │   ├── copyFile.ts
+│   │   ├── deleteFile.ts
+│   │   ├── downloadFile.ts
+│   │   ├── fileExists.ts
+│   │   ├── generateSignedUrl.ts
+│   │   ├── getFileMetadata.ts
+│   │   ├── listFiles.ts
+│   │   ├── moveFile.ts
+│   │   ├── uploadFile.ts
+├── string-utilities
+│   ├── index.ts
+│   ├── utils
+│   │   ├── generateRandomString.ts
+│   │   ├── isEmailValid.ts
+│   │   ├── isPalindrome.ts
+│   │   ├── isPhoneNumberValid.ts
+│   │   ├── isStrongPassword.ts
+│   │   ├── isURLValid.ts
+├── test
+│   ├── directory_structure.txt
+│   ├── fileStature.ts
+├── time-utils
+│   ├── index.ts
+│   ├── utils
+│   │   ├── addTime.ts
+│   │   ├── convertTo24HourFormat.ts
+│   │   ├── debounce.ts
+│   │   ├── formatTime.ts
+│   │   ├── formatTimeAgo.ts
+│   │   ├── getCurrentTime.ts
+│   │   ├── getTimeDifference.ts
+│   │   ├── isTimeInRange.ts
+│   │   ├── subtractTime.ts
+│   │   ├── throttle.ts
+├── webPushNotifications
+│   ├── index.ts
+│   ├── utils
+│   │   ├── checkNotificationPermission.ts
+│   │   ├── clearNotifications.ts
+│   │   ├── getSubscription.ts
+│   │   ├── isNotificationVisible.ts
+│   │   ├── isPushSupported.ts
+│   │   ├── listNotifications.ts
+│   │   ├── notificationManager.ts
+│   │   ├── notifyUser.ts
+│   │   ├── registerServiceWorker.ts
+│   │   ├── requestNotificationPermission.ts
+│   │   ├── sendBatchNotifications.ts
+│   │   ├── sendPushNotification.ts
+│   │   ├── serviceWorkerStatus.ts
+│   │   ├── subscribeUser.ts
+│   │   ├── unregisterServiceWorker.ts
+│   │   ├── unsubscribeUser.ts
+│   │   ├── updateSubscription.ts

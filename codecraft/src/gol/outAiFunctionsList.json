@@ -7,7 +7,7 @@
     "copyFile(source: string, destination: string): void",
     "moveFile(source: string, destination: string): void"
   ],
-  "CodeAnalysis": [
+  "++": [
     "analyzeCodeQuality(code: string): CodeQualityReport",
     "detectCodeSmells(code: string): string[]",
     "extractFunctionSignatures(code: string): FunctionSignature[]",
