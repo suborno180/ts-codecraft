@@ -36,7 +36,7 @@ const DocumentationSchema = z.object({
     ),
 });
 
-// Middleware to check for token authorization
+// Middleware to check for token authorization (used for POST, PUT, DELETE)
 async function authenticate(req: NextRequest) {
     const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
     if (!token) {
@@ -52,8 +52,7 @@ function createErrorResponse(message: string, status: number) {
 // Function to handle GET requests
 export async function GET(req: NextRequest) {
     try {
-        await authenticate(req);
-        
+        // No authentication required for GET
         const documentation = await prisma.documentation.findMany({
             include: {
                 groups: {
@@ -80,10 +79,9 @@ export async function GET(req: NextRequest) {
 }
 
 // Function to handle POST requests
-// Function to handle POST requests
 export async function POST(req: NextRequest) {
     try {
-        await authenticate(req);
+        await authenticate(req); // Authenticate for POST
         
         const data = await req.json();
         DocumentationSchema.parse(data); // Validate incoming data
@@ -111,7 +109,7 @@ export async function POST(req: NextRequest) {
                                         description: param.description,
                                     })),
                                 },
-                                returnId: func.returnId, // Ensure returnId is included
+                                returnId: func.returnId,
                             })),
                         },
                     })),
@@ -141,11 +139,10 @@ export async function POST(req: NextRequest) {
     }
 }
 
-
 // Function to handle PUT requests
 export async function PUT(req: NextRequest) {
     try {
-        await authenticate(req);
+        await authenticate(req); // Authenticate for PUT
         
         const { id, title, description } = await req.json();
         
@@ -167,7 +164,7 @@ export async function PUT(req: NextRequest) {
 // Function to handle DELETE requests
 export async function DELETE(req: NextRequest) {
     try {
-        await authenticate(req);
+        await authenticate(req); // Authenticate for DELETE
         
         const { id } = await req.json();
         
