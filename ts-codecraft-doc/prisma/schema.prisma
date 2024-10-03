@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Documentation {
+  id          Int     @id @default(autoincrement())
+  title       String
+  description String?
+  groups      Group[]
+}
+
+model Group {
+  id              Int           @id @default(autoincrement())
+  name            String
+  description     String?
+  documentationId Int
+  documentation   Documentation @relation(fields: [documentationId], references: [id])
+  functions       Function[]
+}
+
+model Function {
+  id            Int         @id @default(autoincrement())
+  name          String
+  signature     String
+  description   String?
+  parameters    Parameter[]
+  exampleCode   String?
+  exampleOutput String?
+  seoKeywords   String?     // Store as a comma-separated string
+  groupId       Int
+  group         Group       @relation(fields: [groupId], references: [id])
+  returnId      Int
+  Return        Return[]
+
+  @@index([groupId]) // Index for performance
+}
+
+model Parameter {
+  id          Int      @id @default(autoincrement())
+  name        String
+  type        String
+  description String?
+  functionId  Int
+  function    Function @relation(fields: [functionId], references: [id])
+}
+
+model Return {
+  id          Int      @id @default(autoincrement())
+  type        String
+  description String?
+  functionId  Int
+  function    Function @relation(fields: [functionId], references: [id])
+}

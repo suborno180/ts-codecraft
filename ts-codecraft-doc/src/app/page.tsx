@@ -1,5 +1,3 @@
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { LuRocket, LuCheckCircle, LuBookOpenCheck } from "react-icons/lu";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";

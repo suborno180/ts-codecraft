@@ -1,3 +1,25 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript"
+  ],
+  "rules": {
+    // Allow unused variables with specific patterns
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
+    ],
+    // Allow explicit 'any' type
+    "@typescript-eslint/no-explicit-any": "off",
+    // Allow unescaped entities in JSX
+    "react/no-unescaped-entities": "off",
+    // Allow console logs (you can remove this if you want to keep it clean)
+    "no-console": "off",
+    // Adjust any other rules as needed
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // Automatically detect the version of React
+    }
+  }
 }
