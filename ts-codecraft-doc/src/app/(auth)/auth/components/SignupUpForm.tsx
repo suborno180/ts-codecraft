@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { signIn, useSession } from 'next-auth/react';
+import { LuLoader } from 'react-icons/lu'; // Import the loader icon
 
 const SignupUpForm = ({ hostUrl }: { hostUrl: string }) => {
   const { data: session, status } = useSession();
@@ -9,9 +10,10 @@ const SignupUpForm = ({ hostUrl }: { hostUrl: string }) => {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false); // New loading state
   const router = useRouter();
 
-  const HOST_URL = String(hostUrl)
+  const HOST_URL = String(hostUrl);
 
   useEffect(() => {
     if (status === 'authenticated') {
@@ -22,6 +24,7 @@ const SignupUpForm = ({ hostUrl }: { hostUrl: string }) => {
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true); // Set loading to true when the signup starts
 
     const res = await fetch(`${HOST_URL}/api/auth/signup`, {
       method: 'POST',
@@ -30,6 +33,8 @@ const SignupUpForm = ({ hostUrl }: { hostUrl: string }) => {
       },
       body: JSON.stringify({ email, password, name }),
     });
+
+    setLoading(false); // Set loading to false after the request completes
 
     if (res.ok) {
       // Optionally, sign in the user after successful signup
@@ -40,7 +45,6 @@ const SignupUpForm = ({ hostUrl }: { hostUrl: string }) => {
       setError(data.error || 'Something went wrong.');
     }
   };
-  
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -83,9 +87,14 @@ const SignupUpForm = ({ hostUrl }: { hostUrl: string }) => {
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-200"
+            disabled={loading} // Disable button when loading
+            className={`w-full flex justify-center items-center p-2 rounded-md transition duration-200 ${loading ? 'bg-gray-400' : 'bg-blue-500 hover:bg-blue-600'} text-white`}
           >
-            Sign Up
+            {loading ? (
+              <LuLoader className="animate-spin h-5 w-5 mr-2" /> // Spinning loader icon
+            ) : (
+              'Sign Up'
+            )}
           </button>
         </form>
         <p className="mt-4 text-center text-gray-600">

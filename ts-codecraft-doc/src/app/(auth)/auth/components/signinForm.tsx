@@ -2,12 +2,14 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { signIn, useSession } from 'next-auth/react';
+import { LuLoader } from 'react-icons/lu'; // Importing the spinning icon
 
 const SignInForm = () => {
   const { data: session, status } = useSession();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false); // New loading state
   const router = useRouter();
   
   useEffect(() => {
@@ -19,6 +21,7 @@ const SignInForm = () => {
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true); // Set loading to true when the sign-in starts
 
     const result = await signIn('credentials', {
       email,
@@ -26,13 +29,14 @@ const SignInForm = () => {
       redirect: false,
     });
 
+    setLoading(false); // Set loading to false once the sign-in is completed
+
     if (result?.error) {
       setError(result.error);
     } else {
       router.push('/');
     }
   };
-
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -64,9 +68,14 @@ const SignInForm = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-200"
+            disabled={loading} // Disable button when loading
+            className={`w-full flex justify-center items-center p-2 rounded-md transition duration-200 ${loading ? 'bg-gray-400' : 'bg-blue-500 hover:bg-blue-600'} text-white`}
           >
-            Sign In
+            {loading ? (
+              <LuLoader className="animate-spin h-5 w-5 mr-2" /> // Spinning loader icon
+            ) : (
+              'Sign In'
+            )}
           </button>
         </form>
         <p className="mt-4 text-center text-gray-600">
