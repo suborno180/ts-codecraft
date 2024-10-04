@@ -12,9 +12,11 @@ interface Group {
 
 const AddDoc: React.FC = () => {
   const { status } = useSession()
+  console.log(status);
+  
   const route = useRouter()
   if (status === 'unauthenticated') {
-    route.push('/admin/add-doc')
+    route.push('/auth/signin')
   }
 
   const [groupName, setGroupName] = useState<string>(''); // State to store the group name
