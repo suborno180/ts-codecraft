@@ -47,9 +47,9 @@ const SignupUpForm = ({ hostUrl }: { hostUrl: string }) => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96">
-        <h1 className="text-2xl font-bold mb-6 text-center">Sign Up</h1>
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-green-400 to-blue-500">
+      <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-md w-96">
+        <h1 className="text-2xl font-bold mb-6 text-center text-green-600">Sign Up</h1>
         {error && <p className="text-red-500 text-sm text-center">{error}</p>}
         <form onSubmit={handleSignup}>
           <div className="mb-4">
@@ -60,7 +60,7 @@ const SignupUpForm = ({ hostUrl }: { hostUrl: string }) => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
+              className="mt-1 block w-full p-2 border border-primary/20 rounded-md focus:outline-none focus:ring focus:ring-blue-400"
             />
           </div>
           <div className="mb-4">
@@ -71,7 +71,7 @@ const SignupUpForm = ({ hostUrl }: { hostUrl: string }) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
+              className="mt-1 block w-full p-2 border border-primary/20 rounded-md focus:outline-none focus:ring focus:ring-blue-400"
             />
           </div>
           <div className="mb-6">
@@ -82,13 +82,13 @@ const SignupUpForm = ({ hostUrl }: { hostUrl: string }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
+              className="mt-1 block w-full p-2 border border-primary/20 rounded-md focus:outline-none focus:ring focus:ring-blue-400"
             />
           </div>
           <button
             type="submit"
             disabled={loading} // Disable button when loading
-            className={`w-full flex justify-center items-center p-2 rounded-md transition duration-200 ${loading ? 'bg-gray-400' : 'bg-blue-500 hover:bg-blue-600'} text-white`}
+            className={`w-full flex justify-center items-center p-2 rounded-md transition duration-200 ${loading ? 'bg-gray-400' : 'bg-green-600 hover:bg-green-500'} text-white`}
           >
             {loading ? (
               <LuLoader className="animate-spin h-5 w-5 mr-2" /> // Spinning loader icon
@@ -98,7 +98,7 @@ const SignupUpForm = ({ hostUrl }: { hostUrl: string }) => {
           </button>
         </form>
         <p className="mt-4 text-center text-gray-600">
-          Already have an account? <a href="/auth/signin" className="text-blue-500">Sign In</a>
+          Already have an account? <a href="/auth/signin" className="text-green-600 hover:underline">Sign In</a>
         </p>
       </div>
     </div>

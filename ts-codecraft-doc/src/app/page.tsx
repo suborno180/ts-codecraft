@@ -11,10 +11,10 @@ export default function Home() {
   `;
 
   return (
-    <div className="grid bg-white  grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="grid bg-white grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8  pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <h1 className="text-4xl font-bold text-center sm:text-left flex flex-col items-start gap-2">
-          Welcome to <span className="text-blue-500 flex items-center gap-3"><LuRocket size={32} color="blue" /> TS CodeCraft</span>
+          Welcome to <span className="text-[#00bd6d] flex items-center gap-3"><LuRocket size={32} color="#00bd6d" /> TS CodeCraft</span>
         </h1>
         <p className="text-lg text-center sm:text-left text-gray-600 max-w-lg">
           <strong>TS CodeCraft</strong> is your go-to TypeScript utility library with essential, reusable, and well-crafted functions. Simplify common tasks in development, boost productivity, and avoid writing boilerplate code repeatedly.
@@ -22,24 +22,24 @@ export default function Home() {
 
         {/* Feature Highlights */}
         <h2 className="text-2xl font-semibold flex items-center gap-2">
-          <LuCheckCircle size={24} color="green" />
+          <LuCheckCircle size={24} color="#00bd6d" />
           Key Features
         </h2>
         <ul className="list-inside list-disc text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2 flex items-center gap-2">
-            <LuCheckCircle size={20} color="green" />
+            <LuCheckCircle size={20} color="#00bd6d" />
             Modular Design – Import only the functions you need.
           </li>
           <li className="mb-2 flex items-center gap-2">
-            <LuCheckCircle size={20} color="green" />
+            <LuCheckCircle size={20} color="#00bd6d" />
             TypeScript First – Designed with TypeScript for strong typing and autocompletion.
           </li>
           <li className="mb-2 flex items-center gap-2">
-            <LuCheckCircle size={20} color="green" />
+            <LuCheckCircle size={20} color="#00bd6d" />
             Highly Optimized – Performance-optimized utility functions for fast execution.
           </li>
           <li className="mb-2 flex items-center gap-2">
-            <LuCheckCircle size={20} color="green" />
+            <LuCheckCircle size={20} color="#00bd6d" />
             Extensive Documentation – Clear explanations, use cases, and examples.
           </li>
         </ul>
@@ -47,7 +47,7 @@ export default function Home() {
         {/* Installation Instructions */}
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-blue-600 text-white gap-2 hover:bg-blue-700 text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-[#00bd6d] text-white gap-2 hover:bg-[#00bd6d]/80 text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
             href="https://www.npmjs.com/package/ts-codecraft"
             target="_blank"
             rel="noopener noreferrer"
@@ -62,7 +62,7 @@ export default function Home() {
 
         {/* Code Example with Syntax Highlighter */}
         <h2 className="text-2xl font-semibold mt-8 flex items-center gap-2">
-          <LuBookOpenCheck size={24} color="purple" />
+          <LuBookOpenCheck size={24} className="text-primary" />
           Usage Example
         </h2>
         <p className="text-gray-600 max-w-md text-center sm:text-left">
@@ -77,7 +77,7 @@ export default function Home() {
             href="/doc/installation"
             rel="noopener noreferrer"
           >
-            <Button className="flex items-center gap-3">
+            <Button>
               <span className="mr-2">
                 <LuBookOpenCheck size={20} />
               </span>
@@ -89,7 +89,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button className="flex items-center gap-3" variant={'ghost'}>
+            <Button className="flex items-center gap-3" variant={'outline'}>
               <span className="mr-2">
                 <LuRocket size={20} />
               </span>
