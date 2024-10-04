@@ -1,9 +1,25 @@
-// app/api/auth/signup/route.ts
 import { NextResponse } from 'next/server';
-import { PrismaClient } from '@prisma/client';
+import fs from 'fs';
+import path from 'path';
 import bcrypt from 'bcrypt';
 
-const prisma = new PrismaClient();
+// Path to the user.json file outside of the src directory
+const userDbPath = path.join(process.cwd(), 'db', 'user.json');
+
+// Function to read user data from JSON file
+const getUsersFromJson = () => {
+  try {
+    const data = fs.readFileSync(userDbPath, 'utf8');
+    return JSON.parse(data);
+  } catch (err) {
+    return []; // Return an empty array if the file is empty or doesn't exist
+  }
+};
+
+// Function to write updated user data to the JSON file
+const saveUsersToJson = (users: any) => {
+  fs.writeFileSync(userDbPath, JSON.stringify(users, null, 2), 'utf8');
+};
 
 export async function POST(request: Request) {
   const { email, password, name } = await request.json();
@@ -13,8 +29,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'All fields are required.' }, { status: 400 });
   }
 
+  // Read existing users from the JSON file
+  const users = getUsersFromJson();
+
   // Check if the user already exists
-  const existingUser = await prisma.user.findUnique({ where: { email } });
+  const existingUser = users.find((user: any) => user.email === email);
   if (existingUser) {
     return NextResponse.json({ error: 'User already exists.' }, { status: 409 });
   }
@@ -22,15 +41,18 @@ export async function POST(request: Request) {
   // Hash the password
   const hashedPassword = await bcrypt.hash(password, 10);
 
-  // Create the user
-  const user = await prisma.user.create({
-    data: {
-      email,
-      password: hashedPassword,
-      name,
-    },
-  });
+  // Create the new user object
+  const newUser = {
+    id: users.length + 1, // Auto incrementing ID
+    name,
+    email,
+    password: hashedPassword,
+  };
 
-  // Return the newly created user (without the password)
-  return NextResponse.json({ user: { id: user.id, name: user.name, email: user.email } }, { status: 201 });
+  // Add the new user to the list of users and save it to the JSON file
+  users.push(newUser);
+  saveUsersToJson(users);
+
+  // Return the newly created user (excluding password)
+  return NextResponse.json({ user: { id: newUser.id, name: newUser.name, email: newUser.email } }, { status: 201 });
 }

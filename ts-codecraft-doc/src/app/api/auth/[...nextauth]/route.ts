@@ -1,29 +1,39 @@
 import NextAuth, { AuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { PrismaClient } from '@prisma/client';
+import fs from 'fs';
+import path from 'path';
 import bcrypt from 'bcrypt';
 
-const prisma = new PrismaClient();
+// Define the path to the JSON file
+const userDbPath = path.join(process.cwd(), 'db', 'user.json');
+
+// Function to read user data from JSON file
+const getUsersFromJson = () => {
+  const data = fs.readFileSync(userDbPath, 'utf8');
+  return JSON.parse(data);
+};
 
 const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
-        email: { label: "Email", type: "text", placeholder: "you@example.com" },
-        password: { label: "Password", type: "password" },
+        email: { label: 'Email', type: 'text', placeholder: 'you@example.com' },
+        password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
         if (!credentials) return null;
 
-        const user = await prisma.user.findUnique({
-          where: { email: credentials.email },
-        });
+        // Read users from JSON file
+        const users = getUsersFromJson();
+        const user = users.find((u: any) => u.email === credentials.email);
 
+        // Check if user exists and the password matches
         if (user && await bcrypt.compare(credentials.password, user.password)) {
-          return { id: user.id.toString(), name: user.name || '', email: user.email };
+          return { id: user.id.toString(), name: user.name, email: user.email };
         }
 
+        // Return null if authentication fails
         return null;
       },
     }),
@@ -38,15 +48,15 @@ const authOptions: AuthOptions = {
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.id = user.id; // Assuming user.id is a string
-        token.name = user.name; // Assuming user.name is a string
+        token.id = user.id;
+        token.name = user.name;
       }
       return token;
     },
     async session({ session, token }) {
       if (session.user) {
-        session.user.id = token.id as string; // Ensure id is a string
-        session.user.name = token.name as string; // Ensure name is a string
+        session.user.id = token.id as string;
+        session.user.name = token.name as string;
       }
       return session;
     },
