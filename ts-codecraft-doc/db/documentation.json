@@ -56,5 +56,24 @@
         ]
       }
     ]
+  },
+  {
+    "id": 3,
+    "title": "My Documentation Title",
+    "description": "This is a description for my documentation.",
+    "groups": [
+      {
+        "name": "Group A",
+        "icon": "icon-url-a",
+        "description": "",
+        "functions": []
+      },
+      {
+        "name": "Group B",
+        "icon": "icon-url-b",
+        "description": "",
+        "functions": []
+      }
+    ]
   }
 ]
