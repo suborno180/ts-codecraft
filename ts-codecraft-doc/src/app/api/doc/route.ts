@@ -68,13 +68,13 @@ function createErrorResponse(message: string, status: number) {
 // Fetcher to get documentation by ID
 async function getDocumentationById(id: number) {
     const documentation = readDocumentationFromJson();
-    return documentation.find((doc: any) => doc.id === id);
+    return documentation.find((doc: { id: number }) => doc.id === id);
 }
 
 // Fetcher to get documentation by title (case-insensitive)
 async function getDocumentationByTitle(title: string) {
     const documentation = readDocumentationFromJson();
-    return documentation.filter((doc: any) => doc.title.toLowerCase().includes(title.toLowerCase()));
+    return documentation.filter((doc: { title: string }) => doc.title.toLowerCase().includes(title.toLowerCase()));
 }
 
 // Fetcher to get the total number of documents
@@ -90,6 +90,7 @@ export async function GET(req: NextRequest) {
         const id = searchParams.get('id');
         const title = searchParams.get('title');
         const total = searchParams.get('total');
+        const groups = searchParams.get('groups'); // New parameter to get group names
 
         let responseData = {};
         let statusCode = 200;
@@ -130,6 +131,23 @@ export async function GET(req: NextRequest) {
             };
         }
 
+        // Get only group names in the specified format
+        else if (groups === "true") {
+            const documentation = readDocumentationFromJson();
+            // Extract and format group names
+            const groupNames = documentation.flatMap((doc: { groups: { name: string }[] }) =>
+                doc.groups.map((group: { name: string }) => ({ group: group.name }))
+            );
+
+            const totalGroups = groupNames.length; // Calculate the total number of groups
+            responseData = {
+                success: true,
+                message: "All group names retrieved successfully",
+                total: totalGroups, // Include total count of groups
+                data: groupNames, // Only formatted group names returned here
+            };
+        }
+
         // Default: Fetch all documents
         else {
             const documentation = readDocumentationFromJson();
@@ -150,6 +168,7 @@ export async function GET(req: NextRequest) {
 }
 
 
+
 // Function to handle POST requests
 export async function POST(req: NextRequest) {
     try {
@@ -164,7 +183,7 @@ export async function POST(req: NextRequest) {
             id: documentation.length + 1, // Generate new ID
             title: data.title,
             description: data.description,
-            groups: data.groups.map((group: any) => ({
+            groups: data.groups.map((group: { name: string; description?: string; functions: any[] }) => ({
                 name: group.name,
                 description: group.description,
                 functions: group.functions.map((func: any) => ({
@@ -174,7 +193,7 @@ export async function POST(req: NextRequest) {
                     exampleCode: func.exampleCode,
                     exampleOutput: func.exampleOutput,
                     seoKeywords: func.seoKeywords.join(','), // Convert array to string
-                    parameters: func.parameters.map((param: any) => ({
+                    parameters: func.parameters.map((param: { name: string; type: string; description?: string }) => ({
                         name: param.name,
                         type: param.type,
                         description: param.description,
@@ -205,7 +224,7 @@ export async function PUT(req: NextRequest) {
 
         const documentation = readDocumentationFromJson();
 
-        const docIndex = documentation.findIndex((doc: any) => doc.id === id);
+        const docIndex = documentation.findIndex((doc: { id: number }) => doc.id === id);
         if (docIndex === -1) {
             return createErrorResponse("Documentation not found", 404);
         }
@@ -232,12 +251,12 @@ export async function DELETE(req: NextRequest) {
 
         let documentation = readDocumentationFromJson();
 
-        const docIndex = documentation.findIndex((doc: any) => doc.id === id);
+        const docIndex = documentation.findIndex((doc: { id: number }) => doc.id === id);
         if (docIndex === -1) {
             return createErrorResponse("Documentation not found", 404);
         }
 
-        documentation = documentation.filter((doc: any) => doc.id !== id);
+        documentation = documentation.filter((doc: { id: number }) => doc.id !== id);
 
         saveDocumentationToJson(documentation);
 
@@ -248,7 +267,6 @@ export async function DELETE(req: NextRequest) {
         return createErrorResponse(message, 500);
     }
 }
-
 
 // POST example
 /**
@@ -271,8 +289,8 @@ export async function DELETE(req: NextRequest) {
                     "parameters": [
                         {
                             "name": "param1",
-                            "type": "Type",
-                            "description": "Parameter description"
+                            "type": "string",
+                            "description": "Description of param1"
                         }
                     ],
                     "returnId": 1
@@ -281,5 +299,5 @@ export async function DELETE(req: NextRequest) {
         }
     ]
 }
-
- * */ 
+ *
+ */
